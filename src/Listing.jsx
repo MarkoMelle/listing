@@ -20,7 +20,7 @@ export const Listing = ({ items }) => {
           <div className="item" key={item.listing_id}>
             <div className="item-image">
               <a href={item.url}>
-                <img src={item.MainImage.url_570xN}></img>
+                <img src={item.MainImage.url_570xN} alt={item.title}></img>
               </a>
             </div>
             <div className="item-details">
