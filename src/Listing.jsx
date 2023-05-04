@@ -10,6 +10,17 @@ export const Listing = ({ items }) => {
       return item.price + " " + item.currency_code;
     }
   };
+
+  const level = (item) => {
+    if (item.quantity <= 10) {
+      return "low";
+    } else if (item.quantity <= 20) {
+      return "medium";
+    } else {
+      return "high";
+    }
+  };
+
   return (
     <div className="item-list">
       {items.map((item) => {
@@ -26,7 +37,7 @@ export const Listing = ({ items }) => {
             <div className="item-details">
               <p className="item-title">{item.title}</p>
               <p className="item-price">{price(item)}</p>
-              <p className="item-quantity level-medium">{item.quantity} left</p>
+              <p className={`item-quantity level-${level(item)}`}>{item.quantity} left</p>
             </div>
           </div>
         );
